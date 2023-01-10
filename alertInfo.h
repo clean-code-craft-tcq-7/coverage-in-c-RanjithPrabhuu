@@ -5,7 +5,7 @@
 typedef struct
 {
 	AlertTarget Target ;
-	void (*AlertCallback)(BreachType);
+	void (*AlertCallback)(BreachType,(*alertMessage)(char*));
 }AlertTable;
 
 typedef struct
@@ -15,6 +15,6 @@ typedef struct
    const char*SecondMessage;
 }sendToEmailMessage;
 
-void sendToController(BreachType breachType);
+void sendToController(BreachType breachType,void (*alertMessage)(char*));
 void sendToEmail(BreachType breachType);
-void SendAlertMessage(AlertTarget alertTarget,BreachType breachType);
+void SendAlertMessage(AlertTarget alertTarget,BreachType breachType,void (*alertMessage)(char*));
