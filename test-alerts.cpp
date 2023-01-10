@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "test/catch.hpp"
-#include "product_config.h"
+#include "config.h"
 #include "typewise-alert.h"
 
 char printStr1[100];
