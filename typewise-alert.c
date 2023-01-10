@@ -1,5 +1,5 @@
-#include "typewise-alert.h"
 #include "config.h"
+#include "typewise-alert.h"
 #include "breachCheck.h"
 #include "alertInfo.h"
 
