@@ -1,8 +1,6 @@
-#include <stdio.h>
 #include "config.h"
-#include "breachCheck.h"
+#include "BreachCheck.h"
 
-//function definition to check the breach
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
   if(value < lowerLimit) 
@@ -16,10 +14,19 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
   return NORMAL;
 }
 
-//function definition to classify the limits
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
-  int lowerLimit = limitValuesList[coolingType].lowerLimit;
-  int upperLimit = limitValuesList[coolingType].upperLimit;
-  return inferBreach(temperatureInC, lowerLimit, upperLimit);
+   int lowerLimit = 0;
+   int upperLimit = 0;
+   for ( int CoolingInfoTableIndex = 0; CoolingInfoTableIndex < MAXIMUM_COOLING_TYPE;CoolingInfoTableIndex++)
+   {
+      if(CoolingInfoTable[CoolingInfoTableIndex].coolingtype == coolingType)
+      {
+         lowerLimit = CoolingInfoTable[CoolingInfoTableIndex].LowerLimit;
+         upperLimit = CoolingInfoTable[CoolingInfoTableIndex].UpperLimit; 
+         break;
+      }
+   } 
+   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
+
