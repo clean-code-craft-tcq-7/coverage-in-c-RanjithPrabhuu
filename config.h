@@ -20,5 +20,21 @@ typedef struct{
     int upperLimit;
 } LimitValue;
 
-//extern for array of structures
+//enum for alert mode 
+typedef enum {
+  TO_CONTROLLER,
+  TO_EMAIL,
+  MAX_ALERT_TYPE,
+} AlertTarget;
+
+//structure to hold coolingType and brand
+typedef struct {
+  CoolingType coolingType;
+  char brand[48];
+} BatteryCharacter;
+
+//extern array to hold the limit
 extern LimitValue limitValuesList[MAX_COOLING_TYPE];
+//extern variable to hold the receipent
+extern const char* recepient;
+
