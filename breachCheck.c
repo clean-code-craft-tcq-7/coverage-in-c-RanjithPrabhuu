@@ -1,5 +1,5 @@
 #include "config.h"
-#include "BreachCheck.h"
+#include "breachCheck.h"
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
