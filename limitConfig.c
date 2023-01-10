@@ -2,9 +2,8 @@
 #include "config.h"
 
 //array which holds limit config list 
-LimitValue limitConfigList[MAX_COOLING_TYPE] =
-{
-      {.lowerLimit = 0, .upperLimit = 35},
-      {.lowerLimit = 0, .upperLimit = 45},
-      {.lowerLimit = 0, .upperLimit = 40},
+const CoolingInfo CoolingInfoTable[]= {
+    {NORMAL_COOLING , NORMAL_COOLING_LOWERLIMIT,NORMAL_COOLING_UPPERLIMIT},
+    {HIGH_ACTIVE_COOLING,HIGH_ACTIVE_COOLING_LOWERLIMIT,HIGH_ACTIVE_COOLING_UPPERLIMIT},
+    {MEDIUM_ACTIVE_COOLING,MEDIUM_ACTIVE_COOLING_LOWERLIMIT,MEDIUM_ACTIVE_COOLING_UPPERLIMIT},
 };
