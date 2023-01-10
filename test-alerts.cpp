@@ -2,7 +2,6 @@
 
 #include "test/catch.hpp"
 #include "typewise-alert.h"
-#include "config.h"
 #include "alertInfo.h"
 #include "breachCheck.h"
 
