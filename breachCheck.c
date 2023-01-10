@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "config.h"
 #include "breachCheck.h"
 
 //function definition to check the breach
