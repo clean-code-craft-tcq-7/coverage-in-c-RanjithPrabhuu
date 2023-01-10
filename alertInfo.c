@@ -27,7 +27,8 @@ void SendAlertMessage(AlertTarget alertTarget,BreachType breachType)
 
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
-  printf("%x : %x\n", header, breachType);
+  char msgBuf[50];
+  sprintf(msgBuf,"%x : %x\n", header, breachType);
 }
 
 void sendToEmail(BreachType breachType) 
