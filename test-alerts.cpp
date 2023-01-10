@@ -1,8 +1,33 @@
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
-
+#include <stdio.h>
+#include <string.h>
 #include "test/catch.hpp"
+#include "product_config.h"
 #include "typewise-alert.h"
 
-TEST_CASE("infers the breach according to limits") {
-  REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
+char printStr1[100];
+
+void printfunc1(char* buff)
+{
+    strcpy(printStr1, buff);
+}
+
+TEST_CASE("Alert via Email HI_ACTIVE_COOLING high breach"){
+
+    BatteryCharacter batteryChar;
+    batteryChar.coolingType = HI_ACTIVE_COOLING;
+
+    checkAndAlert(TO_EMAIL, batteryChar, 46, &printfunc1);
+
+    REQUIRE(strcmp(printStr1,"To: a.b@c.com\nHi, the temperature is too high\n") == 0);
+}
+
+TEST_CASE("Alert via Email HI_ACTIVE_COOLING normal"){
+
+    BatteryCharacter batteryChar;
+    batteryChar.coolingType = HI_ACTIVE_COOLING;
+    memset(printStr1, 0, 100);
+
+    checkAndAlert(TO_EMAIL, batteryChar, 30, &printfunc1);
+
+    REQUIRE(strlen(printStr1) == 0);
 }
