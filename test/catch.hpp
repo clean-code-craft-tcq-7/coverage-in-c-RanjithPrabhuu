@@ -12,6 +12,7 @@
 #define TWOBLUECUBES_SINGLE_INCLUDE_CATCH_HPP_INCLUDED
 // start catch.hpp
 
+
 #define CATCH_VERSION_MAJOR 2
 #define CATCH_VERSION_MINOR 13
 #define CATCH_VERSION_PATCH 0
@@ -17798,4 +17799,3 @@ using Catch::Detail::Approx;
 // end catch_reenable_warnings.h
 // end catch.hpp
 #endif // TWOBLUECUBES_SINGLE_INCLUDE_CATCH_HPP_INCLUDED
-
