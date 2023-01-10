@@ -1,13 +1,10 @@
-#include <stdio.h>
+#include "typewise-alert.h"
 #include "config.h"
 #include "breachCheck.h"
-#include "alertSend.h"
-#include "typewise-alert.h"
+#include "AlertInfo.h"
 
-//function definition for check and alert function
-void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC, void (*alertMessage)(char*))
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC)
 {
-    BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-    alertTypeList[alertTarget](breachType, alertMessage);
+  BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
+  SendAlertMessage(alertTarget, breachType);
 }
- 
