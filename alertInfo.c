@@ -13,22 +13,23 @@ const AlertTable AlertTableInfo[] ={
 	{TO_EMAIL,&sendToController }
 };
 
-void SendAlertMessage(AlertTarget alertTarget,BreachType breachType)
+void SendAlertMessage(AlertTarget alertTarget,BreachType breachType,void (*alertMessage)(char*))
 {
 	for (int AlertTableIndex= 0; AlertTableIndex < MAXALERTTYPE ;AlertTableIndex++)
 	{
 		if (AlertTableInfo[AlertTableIndex].Target == alertTarget)
 		{
-		   AlertTableInfo[AlertTableIndex].AlertCallback(breachType);
+		   AlertTableInfo[AlertTableIndex].AlertCallback(breachType,(*alertMessage)(char*));
 		   break;
 		}
 	}
 }
 
-void sendToController(BreachType breachType) {
+void sendToController(BreachType breachType,void (*alertMessage)(char*)) {
   const unsigned short header = 0xfeed;
   char msgBuf[50];
   sprintf(msgBuf,"%x : %x\n", header, breachType);
+  alertMessage(msgBuf);
 }
 
 void sendToEmail(BreachType breachType) 
