@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "breachCheck.c"
+#include "breachCheck.h"
 
 //function definition to check the breach
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
