@@ -1,34 +1,16 @@
 #pragma once
 
-typedef enum {
-  PASSIVE_COOLING,
-  HI_ACTIVE_COOLING,
-  MED_ACTIVE_COOLING,
-  MAX_COOLING_TYPE
-} CoolingType;
+typedef struct
+{
+	CoolingType coolingtype;
+	int LowerLimit;
+	int UpperLimit;
+}CoolingInfo;
 
-typedef enum {
-  NORMAL,
-  TOO_LOW,
-  TOO_HIGH,
-  MAX_BREACH_TYPE
-} BreachType;
-
-typedef struct{
-    int lowerLimit;
-    int upperLimit;
-} LimitValue;
-
-typedef enum {
-  TO_CONTROLLER,
-  TO_EMAIL,
-  MAX_ALERT_TYPE,
-} AlertTarget;
-
-typedef struct {
-  CoolingType coolingType;
-  char brand[48];
-} BatteryCharacter;
-
-extern LimitValue limitValuesList[MAX_COOLING_TYPE];
-extern const char* recepient;
+#define NORMAL_COOLING_LOWERLIMIT 0
+#define NORMAL_COOLING_UPPERLIMIT 35
+#define HIGH_ACTIVE_COOLING_LOWERLIMIT 0
+#define HIGH_ACTIVE_COOLING_UPPERLIMIT 45
+#define MEDIUM_ACTIVE_COOLING_LOWERLIMIT 0
+#define MEDIUM_ACTIVE_COOLING_UPPERLIMIT 40
+#define MAXIMUM_COOLING_TYPE 3
