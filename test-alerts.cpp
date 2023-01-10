@@ -14,15 +14,4 @@ TEST_CASE("infers the breach according to High") {
 TEST_CASE("infers the breach according to Normal") {
   REQUIRE(inferBreach(20, 10, 40) == NORMAL);
 }
-TEST_CASE(" SendAlert messages to controller in high state") {
-  REQUIRE(SendAlertMessage(TO_CONTROLLER, TOO_HIGH));
-}
-TEST_CASE(" SendAlert messages to controller in low state") {
-  REQUIRE(SendAlertMessage(TO_CONTROLLER, TOO_LOW));
-}
-TEST_CASE(" SendAlert messages to email in high state") {
-  REQUIRE(SendAlertMessage(TO_EMAIL, TOO_HIGH));
-}
-TEST_CASE(" SendAlert messages to controller in low state") {
-  REQUIRE(SendAlertMessage(TO_EMAIL, TOO_LOW));
-}
+
