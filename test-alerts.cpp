@@ -54,9 +54,10 @@ TEST_CASE("send email alert high")
   REQUIRE(strcmp(buf,src)!=0);
 }
 
-const char* src = "0xfeed : TOO_HIGH";
+
 TEST_CASE("send controller alert high") 
 {
+  const char* src = "0xfeed : TOO_HIGH";
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,60,&buf[0]);
