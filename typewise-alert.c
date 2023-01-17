@@ -3,8 +3,8 @@
 #include "breachCheck.h"
 #include "alertInfo.h"
 
-void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC)
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC,char* msgBuf)
 {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-  SendAlertMessage(alertTarget, breachType);
+  SendAlertMessage(alertTarget, breachType,msgBuf);
 }
