@@ -32,4 +32,5 @@ TEST_CASE("classifyTemperatureBreach acive cooling Too high") {
 }
 TEST_CASE("classifyTemperatureBreach medactive cooling Too high") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 60) == TOO_HIGH);
+}  
 
