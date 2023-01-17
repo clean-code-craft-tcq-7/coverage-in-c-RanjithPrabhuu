@@ -27,14 +27,14 @@ typedef enum {
 
 typedef struct {
   CoolingType coolingType;
-  char brand[48];
+  char brand[50];
 } BatteryCharacter;
 
 typedef struct
 {
-	CoolingType coolingtype;
-	int LowerLimit;
-	int UpperLimit;
-}CoolingInfo;
+  CoolingType coolingtype;
+  int LowerLimit;
+  int UpperLimit;
+} CoolingInfo;
 
 extern const CoolingInfo CoolingInfoTable[];
