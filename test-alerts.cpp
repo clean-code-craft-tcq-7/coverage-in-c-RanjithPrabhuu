@@ -24,13 +24,13 @@ TEST_CASE("temperature breach classification for med active cooling normal") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 30) == NORMAL);
 }
 TEST_CASE("temperature breach classification for passive cooling Too high") {
-  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 50) == TOO_HIGH);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 52) == TOO_HIGH);
 }
 TEST_CASE("temperature breach classification for acive cooling Too high") {
-  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 46) == TOO_HIGH);
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 44) == TOO_HIGH);
 }
 TEST_CASE("temperature breach classification for med active cooling Too high") {
-  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 60) == TOO_HIGH);
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 65) == TOO_HIGH);
 }  
 TEST_CASE("temperature breach classification for passive cooling Too low") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, -1) == TOO_LOW);
