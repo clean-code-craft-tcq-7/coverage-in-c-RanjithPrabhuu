@@ -53,7 +53,6 @@ TEST_CASE("send email alert high")
   REQUIRE(strcmp(buf,src)!=0);
 }
 
-
 TEST_CASE("send controller alert high") 
 {
   const char* src = "0xfeed : TOO_HIGH";
