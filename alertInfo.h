@@ -15,6 +15,6 @@ typedef struct
    const char*SecondMessage;
 }sendToEmailMessage;
 
-void sendToController(BreachType breachType);
-void sendToEmail(BreachType breachType);
-void SendAlertMessage(AlertTarget alertTarget,BreachType breachType);
+void sendToController(BreachType breachType,char* msgBuf);
+void sendToEmail(BreachType breachType,char* msgBuf);
+void SendAlertMessage(AlertTarget alertTarget,BreachType breachType,char* msgBuf);
