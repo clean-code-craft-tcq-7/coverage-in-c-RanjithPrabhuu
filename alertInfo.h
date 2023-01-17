@@ -5,7 +5,7 @@
 typedef struct
 {
 	AlertTarget Target ;
-	void (*AlertCallback)(BreachType);
+	void (*AlertCallback)(BreachType,char*);
 }AlertTable;
 
 typedef struct
