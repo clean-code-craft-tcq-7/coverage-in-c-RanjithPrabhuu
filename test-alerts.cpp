@@ -5,7 +5,6 @@
 #include "alertInfo.h"
 #include "breachCheck.h"
 
-
 TEST_CASE("breach inference for low limit") {
   REQUIRE(inferBreach(13, 20, 30) == TOO_LOW);
 }
@@ -15,31 +14,31 @@ TEST_CASE("breach inference for high limit") {
 TEST_CASE("breach inference for normal limit") {
   REQUIRE(inferBreach(21, 10, 40) == NORMAL);
 }
-TEST_CASE("classifyTemperatureBreach passive cooling") {
+TEST_CASE("temperature breach classification for passive cooling normal") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 30) == NORMAL);
 }
-TEST_CASE("classifyTemperatureBreach acive cooling cooling") {
+TEST_CASE("temperature breach classification for acive cooling normal") {
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 30) == NORMAL);
 }
-TEST_CASE("classifyTemperatureBreach medactive cooling") {
+TEST_CASE("temperature breach classification for med active cooling normal") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 30) == NORMAL);
 }
-TEST_CASE("classifyTemperatureBreach passive cooling Too high") {
+TEST_CASE("temperature breach classification for passive cooling Too high") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 50) == TOO_HIGH);
 }
-TEST_CASE("classifyTemperatureBreach acive cooling Too high") {
+TEST_CASE("temperature breach classification for acive cooling Too high") {
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 46) == TOO_HIGH);
 }
-TEST_CASE("classifyTemperatureBreach med active cooling Too high") {
+TEST_CASE("temperature breach classification for med active cooling Too high") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 60) == TOO_HIGH);
 }  
-TEST_CASE("classifyTemperatureBreach passive cooling Too low") {
+TEST_CASE("temperature breach classification for passive cooling Too low") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, -1) == TOO_LOW);
 }
-TEST_CASE("classifyTemperatureBreach acive cooling Too low") {
+TEST_CASE("temperature breach classification for acive cooling Too low") {
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, -2) == TOO_LOW);
 }
-TEST_CASE("classifyTemperatureBreach med active cooling Too low") {
+TEST_CASE("temperature breach classification for med active cooling Too low") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, -3) == TOO_LOW);
 }  
 
