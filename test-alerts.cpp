@@ -30,16 +30,16 @@ TEST_CASE("classifyTemperatureBreach passive cooling Too high") {
 TEST_CASE("classifyTemperatureBreach acive cooling Too high") {
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 46) == TOO_HIGH);
 }
-TEST_CASE("classifyTemperatureBreach medactive cooling Too high") {
+TEST_CASE("classifyTemperatureBreach med active cooling Too high") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 60) == TOO_HIGH);
 }  
-TEST_CASE("classifyTemperatureBreach passive cooling Too high") {
+TEST_CASE("classifyTemperatureBreach passive cooling Too low") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, -1) == TOO_LOW);
 }
-TEST_CASE("classifyTemperatureBreach acive cooling Too high") {
+TEST_CASE("classifyTemperatureBreach acive cooling Too low") {
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, -2) == TOO_LOW);
 }
-TEST_CASE("classifyTemperatureBreach medactive cooling Too high") {
+TEST_CASE("classifyTemperatureBreach med active cooling Too low") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, -3) == TOO_LOW);
 }  
 
