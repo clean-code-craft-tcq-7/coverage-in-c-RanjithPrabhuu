@@ -13,25 +13,25 @@ const AlertTable AlertTableInfo[] ={
 	{TO_EMAIL,&sendToController }
 };
 
-void SendAlertMessage(AlertTarget alertTarget,BreachType breachType)
+void SendAlertMessage(AlertTarget alertTarget,BreachType breachType,char* msgBuf)
 {
 	for (int AlertTableIndex= 0; AlertTableIndex < MAXALERTTYPE ;AlertTableIndex++)
 	{
 		if (AlertTableInfo[AlertTableIndex].Target == alertTarget)
 		{
-		   AlertTableInfo[AlertTableIndex].AlertCallback(breachType);
+		   AlertTableInfo[AlertTableIndex].AlertCallback(breachType,msgBuf);
 		   break;
 		}
 	}
 }
 
-void sendToController(BreachType breachType) {
+void sendToController(BreachType breachType,char* msgBuf) {
   const unsigned short header = 0xfeed;
-  char msgBuf[50];
-  sprintf(msgBuf,"%x : %x\n", header, breachType);
+   printf("%x : %x\n", header, breachType);
+   sprintf(msgBuf,"%x : %x\n", header, breachType);
 }
 
-void sendToEmail(BreachType breachType) 
+void sendToEmail(BreachType breachType,char* msgBuf) 
 {
   for(int sendToEmailMessageInfoIndex = 0; sendToEmailMessageInfoIndex<=1 ;sendToEmailMessageInfoIndex++)
   {
@@ -39,6 +39,7 @@ void sendToEmail(BreachType breachType)
 	{
 		printf("%s",sendToEmailMessageInfo[sendToEmailMessageInfoIndex].FirstMessage);
 		printf("%s",sendToEmailMessageInfo[sendToEmailMessageInfoIndex].SecondMessage);
+		sprintf(msgBuf,"%s",sendToEmailMessageInfo[sendToEmailMessageInfoIndex].SecondMessage);
 		break;
 	}
 	
